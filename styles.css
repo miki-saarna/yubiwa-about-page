@@ -97,6 +97,9 @@ html, body {
     .imageSelected1, .imageSelected2, .imageSelected3 {
         display: none;
     }
+    .grabbing {
+        cursor: default !important;
+    }
 }
 
 .slide {
