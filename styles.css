@@ -84,6 +84,7 @@ html, body {
 @media only screen and (min-width: 1024px) {
     .slider-container {
         display: flex;
+        cursor: default;
     }
     .slide img {
         /* object-fit: contain; */
@@ -96,9 +97,6 @@ html, body {
     }
     .imageSelected1, .imageSelected2, .imageSelected3 {
         display: none;
-    }
-    .grabbing {
-        cursor: default !important;
     }
 
 }

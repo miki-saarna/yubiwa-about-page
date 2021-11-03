@@ -1,5 +1,5 @@
 const isSmallScreen = () => {
-  return window.matchMedia("(max-width: 1024px)").matches;
+  return window.matchMedia("(max-width: 1023px)").matches;
 }
 
 
@@ -41,6 +41,7 @@ slides.forEach((slide, index) => {
     slide.addEventListener('mouseup', touchEnd)
     slide.addEventListener('mousemove', touchMove)
     slide.addEventListener('mouseleave', touchEnd)
+    
   }
 
   // handles changes to window size
@@ -56,12 +57,24 @@ slides.forEach((slide, index) => {
       slide.addEventListener('mousemove', touchMove)
       slide.addEventListener('mouseleave', touchEnd)
     } else {
+      currentIndex = 0;
+      startPos = 0;
+      isDragging = false;
+      cancelAnimationFrame(animationID);
+      slider.classList.remove('grabbing');
+      const selected1 = document.querySelector(`.imageSelected1`);
+      selected1.classList.add('filled');
+      const selected2 = document.querySelector(`.imageSelected2`);
+      selected2.classList.remove('filled');
+      const selected3 = document.querySelector(`.imageSelected3`);
+      selected3.classList.remove('filled');
+      
       // touch events
-      slide.removeEventListener('touchstart', touchStart);
+      // slide.removeEventListener('touchstart', touchStart);
       slide.removeEventListener('touchend', touchEnd);
       slide.removeEventListener('touchmove', touchMove);
       // mouse events
-      slide.removeEventListener('mousedown', touchStart);
+      // slide.removeEventListener('mousedown', touchStart);
       slide.removeEventListener('mouseup', touchEnd);
       slide.removeEventListener('mousemove', touchMove);
       slide.removeEventListener('mouseleave', touchEnd);
@@ -89,15 +102,18 @@ function getPositionX(event) {
 // use a HOF so we have index in a closure
 function touchStart(index) {
   return function (event) {
-    currentIndex = index;
-    startPos = getPositionX(event)
-    isDragging = true
-    animationID = requestAnimationFrame(animation)
-    slider.classList.add('grabbing')
+    if(isSmallScreen()) {
+      currentIndex = index;
+      startPos = getPositionX(event)
+      isDragging = true
+      animationID = requestAnimationFrame(animation)
+      slider.classList.add('grabbing')
+    }
   }
 }
 
 function touchMove(event) {
+  // console.log('touchmove')
   if (isDragging) {
     const currentPosition = getPositionX(event)
     currentTranslate = prevTranslate + currentPosition - startPos
@@ -105,6 +121,7 @@ function touchMove(event) {
 }
 
 function touchEnd() {
+  // console.log('touchend')
   cancelAnimationFrame(animationID)
   isDragging = false
   const movedBy = currentTranslate - prevTranslate
