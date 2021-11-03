@@ -2,7 +2,7 @@ const isSmallScreen = () => {
   return window.matchMedia("(max-width: 1024px)").matches;
 }
 
-console.log(isSmallScreen())
+
 
 // get our elements
 const slider = document.querySelector('.slider-container'),
@@ -16,20 +16,59 @@ let isDragging = false,
   animationID,
   currentIndex = 0
 
+  
+// console.log(is)
 // add our event listeners
 slides.forEach((slide, index) => {
+  
   const slideImage = slide.querySelector('img')
   // disable default image drag
   slideImage.addEventListener('dragstart', (e) => e.preventDefault())
-  // touch events
-  slide.addEventListener('touchstart', touchStart(index))
-  slide.addEventListener('touchend', touchEnd)
-  slide.addEventListener('touchmove', touchMove)
-  // mouse events
-  slide.addEventListener('mousedown', touchStart(index))
-  slide.addEventListener('mouseup', touchEnd)
-  slide.addEventListener('mousemove', touchMove)
-  slide.addEventListener('mouseleave', touchEnd)
+  
+  // window.addEventListener('touchstart', () => {
+    // console.log(currentIndex)
+    // console.log(index)
+  // })
+  // only (upon initial page load) adds event listeners if screen size is small
+  if(isSmallScreen()) {
+    
+    // touch events
+    slide.addEventListener('touchstart', touchStart(index))
+    slide.addEventListener('touchend', touchEnd)
+    slide.addEventListener('touchmove', touchMove)
+    // mouse events
+    slide.addEventListener('mousedown', touchStart(index))
+    slide.addEventListener('mouseup', touchEnd)
+    slide.addEventListener('mousemove', touchMove)
+    slide.addEventListener('mouseleave', touchEnd)
+  }
+
+  // handles changes to window size
+  window.addEventListener('resize', () => {
+    if(isSmallScreen()) {
+      // touch events
+      slide.addEventListener('touchstart', touchStart(index))
+      slide.addEventListener('touchend', touchEnd)
+      slide.addEventListener('touchmove', touchMove)
+      // mouse events
+      slide.addEventListener('mousedown', touchStart(index))
+      slide.addEventListener('mouseup', touchEnd)
+      slide.addEventListener('mousemove', touchMove)
+      slide.addEventListener('mouseleave', touchEnd)
+    } else {
+      // touch events
+      slide.removeEventListener('touchstart', touchStart);
+      slide.removeEventListener('touchend', touchEnd);
+      slide.removeEventListener('touchmove', touchMove);
+      // mouse events
+      slide.removeEventListener('mousedown', touchStart);
+      slide.removeEventListener('mouseup', touchEnd);
+      slide.removeEventListener('mousemove', touchMove);
+      slide.removeEventListener('mouseleave', touchEnd);
+      
+      
+    }
+  })
 })
 
 // make responsive to viewport changes
@@ -46,10 +85,11 @@ function getPositionX(event) {
   return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX
 }
 
+
 // use a HOF so we have index in a closure
 function touchStart(index) {
   return function (event) {
-    currentIndex = index
+    currentIndex = index;
     startPos = getPositionX(event)
     isDragging = true
     animationID = requestAnimationFrame(animation)
