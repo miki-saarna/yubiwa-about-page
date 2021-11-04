@@ -4,14 +4,23 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'sf pro';
+    font-family: 'sf pro', Arapey;
 }
 
 html, body {
     height: 100%;
     width: 100%;
     overflow-x: hidden;
+    color: #333333;
 }
+
+p {
+    font-size: 14px;
+}
+
+/* em {
+    display: inline !important;
+} */
 
 .aboutContainerTop {
     display: flex;
@@ -33,6 +42,12 @@ html, body {
     max-height: 100px;
     text-align: center;
     color: white;
+    font-family: Arapey;
+}
+
+/* unsure why but had to add this to make span font change */
+.aboutContainerTop h1 span {
+    font-family: Arapey;
 }
 
 .about-title {
@@ -57,6 +72,8 @@ html, body {
 
 .mission-container h2 {
     margin-bottom: 14px;
+    font-family: Arapey;
+    font-weight: normal;
 }
 
 .mission-container p {
@@ -79,26 +96,6 @@ html, body {
     transition: transform 0.3s ease-out;
     cursor: grab;
     vertical-align: middle;
-}
-
-@media only screen and (min-width: 1024px) {
-    .slider-container {
-        display: flex;
-        cursor: default;
-    }
-    .slide img {
-        /* object-fit: contain; */
-        width: 100%;
-        max-height: 28vh;
-    }
-    .selector-menu {
-        /* doesn't apply without the '!important' tag */
-        display: none !important;
-    }
-    .imageSelected1, .imageSelected2, .imageSelected3 {
-        display: none;
-    }
-
 }
 
 .slide {
@@ -237,6 +234,12 @@ html, body {
     background-color: #f1f1f1;
 }
 
+.conflict-free-container h2 {
+    /* why is it influenced by mission container??? */
+    color: #333333;
+    margin-bottom: 35px;
+}
+
 .conflict-free-container, .conflict-free-container div {
     display: flex;
     flex-direction: column;
@@ -268,73 +271,113 @@ html, body {
     text-align: center;
     margin: 0 20px;
 }
+/* ================================== */
 
 .expensive-container {
     display: flex;
     flex-direction: column;
     align-items: center;
-
+    padding: 40px 0 20px;
 }
 
 .expensive-container img {
-    
-    height: 300px;
-    width: 100%;
-    object-fit: contain;
+    width: 200px;
+    height: 105px;
+    object-fit:cover;
+    vertical-align: middle;
+    margin-bottom: 17px;
 }
-
-.no-overpriced {
+.expensive-container div:last-child {
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: center; 
+    padding: 20px 40px 40px;
+
+    border-top: 1px solid rgba(10,10,10,0.5);
+    border-bottom: 1px solid rgba(10,10,10,0.5);
+    margin: 20px 30px;
+    padding: 20px 0;
     
 }
 
-.moissanite-logo {
-    /* width: auto; */
-    height: 250px;
-    border: 1px solid black;
-    margin: 10px;
-    box-sizing: border-box;
-}
-
-.moissanite-benefit {
-    margin: 50px 70px;
-}
-
-.moissanite-2-container div:last-child img {
-    width: 100%;
-}
-
-.expensive-container div:first-child img {
-    width: 300px;
-    height: 200px;
-    object-fit:cover;
-
-}
 .expensive-container div:last-child h3 {
-    font-size: 24px;
+    font-size: 20px;
     margin-bottom: 30px;
+    text-align: center;
 }
 
 .expensive-container div:last-child p {
-    padding: 0 40px;
+    text-align: center;
+    font-size: 14px;
+}
+/* ================================== */
+
+/* moissanite container */
+.moissanite-container {
+    background-color: #f1f1f1;
+    padding: 30px 0px 40px;
+}
+.moissanite-container > div:first-child h2 {
+    color: #333333;
+    margin-bottom: 40px;
 }
 
+.moissanite-container > div:last-child > div {
+    display: flex;
+    align-items: center;
+}
+.moissanite-container > div:last-child > div:nth-child(2) {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.moissanite-logo img {
+    width: 80px;
+    height: 80px;
+    margin-left: 60px;
+}
+
+.moissanite-benefit {
+    margin-right: 60px;
+    margin-left: 20px;
+    font-size: 12px;
+}
+/* ================================== */
+
+/* 2nd moissanite container */
+.moissanite-2-container div:last-child img {
+    width: 100%;
+}
+.history {
+    padding: 40px 20px 0;
+}
+
+.history > div:last-child {
+    border-top: 1px solid rgba(10,10,10,0.5);
+    border-bottom: 1px solid rgba(10,10,10,0.5);
+    margin: 20px 30px 0;
+    padding: 20px 0;
+}
+
+.history > div:last-child > div:last-child {
+    margin-top: 20px;
+}
 
 .history h3 {
     text-align: center;
-    font-size: 24px;
-}
-
-.history p {
-    margin: 30px 25px 0;
+    font-size: 20px;
 }
 
 .comparison img {
     vertical-align: middle;
+    height: 275px;
+    object-fit: cover;
+    object-position: top center;
+    /* width: 70%; */
 }
+/* ================================== */
 
+/* founder quote container */
 .founder-quote-container {
     height: 100vh;
     display: flex;
@@ -345,6 +388,7 @@ html, body {
 }
 
 .founder-quote-container p {
+    font-family: Arapey;
     font-size: 28px;
     color: white;
     margin: 0 25px;
@@ -360,4 +404,149 @@ html, body {
     content:close-quote;
     color: #f2f2f2;
     font-size: 32px;
+}
+/* ================================== */
+
+/* ipad screen width */
+@media only screen and (min-width: 768px) {
+
+    /* title */
+    .aboutContainerTop h1{
+        position: absolute;
+        top: 120px;
+    }
+    .about-title {
+        display: inline;
+    }
+    /* ================================== */
+
+    /* mission container */
+    .mission-container {
+        padding: 0px 125px;
+    }
+
+    .mission-container p {
+        padding: 50px 10px;
+    }
+
+    .mission-container h2 {
+        margin-bottom: 25px;
+    }
+    /* ================================== */
+
+    /* image gallery */
+    .slider-container {
+        display: flex;
+        cursor: default;
+    }
+    .slide img {
+        /* object-fit: contain; */
+        width: 100%;
+        max-height: 28vh;
+    }
+    .selector-menu {
+        /* doesn't apply without the '!important' tag */
+        display: none !important;
+    }
+    .imageSelected1, .imageSelected2, .imageSelected3 {
+        display: none;
+    }
+    /* ================================== */
+
+    /* moissanite container */
+
+    .moissanite-container {
+        padding: 50px 0;
+    }
+    .moissanite-container div:last-child {
+        display: flex;
+    }
+
+    .moissanite-container > div:last-child > div {
+        flex-direction: column;
+        margin: 0px 35px; 
+    }
+    .moissanite-container > div:last-child > div:nth-child(2) {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+    
+    .moissanite-logo img {
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+    
+    .moissanite-benefit {
+        margin-right: 0;
+        margin-left: 0;
+    }
+    /* ================================== */
+
+    /* expensive container */
+    .expensive-container {
+        flex-direction: row;;
+        margin: 50px 20px;
+    }
+
+    .expensive-container div:first-child {
+        flex: 1;
+        display: flex;
+        padding: 0;
+    }
+
+    .expensive-container div:last-child {
+        flex: 1;
+        border: none;
+        margin: 0 50px;
+    }
+    
+    .expensive-container img {
+        width: 100%;
+        margin: auto;
+        height: 175px;
+    }
+    /* ================================== */
+    
+    /* 2nd moissanite container */
+.moissanite-2-container {
+    /* margin: 40px 0; */
+    display: flex;
+    position: relative;
+    height: 350px;
+}
+
+.moissanite-2-container > div:first-child {
+    flex: 1;
+    /* padding-bottom: 40px; */
+    padding: 40px 0;
+    position: absolute;
+    bottom: 50%;
+    transform: translateY(50%);
+    left: 0;
+    width: 50%;
+    margin-left: 30px;
+}
+
+.moissanite-2-container > div:last-child {
+    flex: 1;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+}
+
+.history {
+    padding: 44px 30px 0;
+}
+
+.history > div:last-child {
+    border: none;
+    padding-bottom: 0;
+}
+
+.comparison img {
+    height: 310px;
+}
+/* ================================== */
+
 }
