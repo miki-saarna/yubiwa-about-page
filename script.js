@@ -1,8 +1,7 @@
+// image carousel 
 const isSmallScreen = () => {
   return window.matchMedia("(max-width: 767px)").matches;
 }
-
-
 
 // get our elements
 const slider = document.querySelector('.slider-container'),
@@ -171,3 +170,87 @@ function setSliderPosition() {
 function menuSelected(index) {
     return document.querySelector(`.imageSelected${index + 1}`);
 }
+// ==================================
+
+// parallax
+// const parallaxRing = document.querySelector(".parallax");
+
+// window.addEventListener("scroll", () => {
+//   let offset = window.pageYOffset;
+  
+//     if(window.innerWidth < 600 ) {
+//         parallaxRing.style.objectPosition = `50% ${offset / 7}%`;
+//     } else if(window.innerWidth < 1024) {
+//         parallaxRing.style.objectPosition = `50% ${(offset) / 13}%`;
+//     } else {
+//         parallaxRing.style.objectPosition = `0 ${offset / 12}%`;
+//     }
+// })
+
+// ==================================
+
+// section fade in
+
+const reveal = document.querySelector(".reveal");
+
+window.addEventListener("scroll", () => {
+    const windowHeight = window.innerHeight;
+    const revealTop = reveal.getBoundingClientRect().top;
+    let revealPoint = 10;
+    if(window.innerWidth < 768) {
+      revealPoint = 150
+    } else if(window.innerWidth < 1024) {
+      revealPoint = 150
+    } else if(window.innerWidth < 1200) {
+      revealPoint = 150
+    } else {
+      revealPoint = 150
+    }
+    if(revealTop < windowHeight - revealPoint) {
+        reveal.classList.add('active');
+    } else {
+        reveal.classList.remove('active');
+    }
+});
+
+const reveal1 = document.querySelector(".reveal1");
+
+window.addEventListener("scroll", () => {
+    const windowHeight = window.innerHeight;
+    const revealTop = reveal.getBoundingClientRect().top;
+    let revealPoint = -1850;
+    if(window.innerWidth > 767 && window.innerWidth < 1024) {
+      revealPoint = -1400
+    } else if(window.innerWidth > 1023 && window.innerWidth < 1200) {
+      revealPoint = -1600
+    } else if(window.innerWidth > 1199) {
+      revealPoint = -2000
+    }
+    if(revealTop < windowHeight - revealPoint) {
+        reveal1.classList.add('active');
+    } else {
+        reveal1.classList.remove('active');
+    }
+});
+
+const reveal2 = document.querySelector(".reveal2");
+
+window.addEventListener("scroll", () => {
+    const windowHeight = window.innerHeight;
+    const revealTop = reveal.getBoundingClientRect().top;
+    let revealPoint = -900;
+    if(window.innerWidth > 767 && window.innerWidth < 1024) {
+      revealPoint = -700
+    } else if(window.innerWidth > 1023 && window.innerWidth < 1200) {
+      revealPoint = -600
+    } else if(window.innerWidth > 1199) {
+      revealPoint = -1000
+    }
+    if(revealTop < windowHeight - revealPoint) {
+        reveal2.classList.add('active');
+    } else {
+        reveal2.classList.remove('active');
+    }
+});
+
+// ==================================

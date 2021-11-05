@@ -8,7 +8,8 @@
 }
 
 html, body {
-    height: 100%;
+    /* height 100% makes scroll event listener no longer function */
+    /* height: 100%; */
     width: 100%;
     overflow-x: hidden;
     color: #333333;
@@ -421,6 +422,45 @@ p.moissanite-benefit {
 }
 /* ================================== */
 
+/* section fade in */
+/* .reveal {
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: all 2s ease;
+}
+
+.reveal.active {
+    transform: translateY(0px);
+    opacity: 1;
+} */
+
+.reveal1 {
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: all 2s ease;
+}
+
+.reveal1.active {
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.reveal2 {
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: all 2s ease;
+}
+
+.reveal2.active {
+    transform: translateY(0px);
+    opacity: 1;
+}
+/* ================================== */
+
+
 /* ipad screen width */
 @media only screen and (min-width: 768px) {
 
@@ -466,10 +506,20 @@ p.moissanite-benefit {
         cursor: default;
     }
     .slide img {
-        /* object-fit: contain; */
         width: 100%;
         max-height: 28vh;
+        
+        /* display: block; */
+        /* object-fit:cover;
+        object-position: top center;
+        z-index: 2; */
     }
+
+    /* .parallax {
+        position: absolute;
+        z-index:1;
+    } */
+
     .selector-menu {
         /* doesn't apply without the '!important' tag */
         display: none !important;
@@ -838,6 +888,4 @@ p.moissanite-benefit {
         }
         /* ================================== */
     }
-    
-
 }   
