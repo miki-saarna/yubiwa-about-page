@@ -4,7 +4,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'sf pro', Arapey;
+    font-family: 'Product Sans';
 }
 
 html, body {
@@ -14,10 +14,16 @@ html, body {
     color: #333333;
 }
 
-p {
+.about-page p {
     font-size: 14px;
+    text-align: center;
 }
 
+.about-page h2 {
+    font-size: 24px;
+}
+
+/* doesn't seem to change the display from block to inline */
 /* em {
     display: inline !important;
 } */
@@ -63,10 +69,10 @@ p {
     justify-content: center;
     align-items: center;
     height: 45vh;
+    color: white;
 }
 
 .mission-container p, h2 {
-    color:white;
     text-align: center;
 }
 
@@ -74,6 +80,7 @@ p {
     margin-bottom: 14px;
     font-family: Arapey;
     font-weight: normal;
+    color: white;
 }
 
 .mission-container p {
@@ -300,15 +307,13 @@ p {
     
 }
 
-.expensive-container div:last-child h3 {
-    font-size: 20px;
+.expensive-container div:last-child h2 {
     margin-bottom: 30px;
     text-align: center;
 }
 
 .expensive-container div:last-child p {
     text-align: center;
-    font-size: 14px;
 }
 /* ================================== */
 
@@ -317,9 +322,13 @@ p {
     background-color: #f1f1f1;
     padding: 30px 0px 40px;
 }
+
 .moissanite-container > div:first-child h2 {
-    color: #333333;
+    color: #4b3122;
+    /* color: #533725; */
     margin-bottom: 40px;
+    font-family: 'Product Sans';
+    letter-spacing: 1px;
 }
 
 .moissanite-container > div:last-child > div {
@@ -334,13 +343,13 @@ p {
 .moissanite-logo img {
     width: 80px;
     height: 80px;
-    margin-left: 60px;
+    margin-left: 30px;
 }
 
-.moissanite-benefit {
-    margin-right: 60px;
+p.moissanite-benefit {
+    text-align: left;
+    margin-right: 30px;
     margin-left: 20px;
-    font-size: 12px;
 }
 /* ================================== */
 
@@ -363,9 +372,8 @@ p {
     margin-top: 20px;
 }
 
-.history h3 {
+.history h2 {
     text-align: center;
-    font-size: 20px;
 }
 
 .comparison img {
@@ -381,6 +389,7 @@ p {
 .founder-quote-container {
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
@@ -391,30 +400,47 @@ p {
     font-family: Arapey;
     font-size: 28px;
     color: white;
-    margin: 0 25px;
+    margin: 0 35px;
 }
 
-.founder-quote-container p::before {
+.founder-quote-container p:first-of-type::before {
     content:open-quote;
     color: #f2f2f2;
     font-size: 32px;
 }
 
-.founder-quote-container p::after {
+.founder-quote-container p:first-of-type::after {
     content:close-quote;
     color: #f2f2f2;
     font-size: 32px;
+}
+
+.founder-quote-container p:last-of-type {
+    font-size: 16px;
+    margin-top: 30px;
 }
 /* ================================== */
 
 /* ipad screen width */
 @media only screen and (min-width: 768px) {
 
-    /* title */
-    .aboutContainerTop h1{
-        position: absolute;
-        top: 120px;
+    .about-page h1 {
+        font-size: 36px;
     }
+    
+    .about-page p {
+        font-size: 18px;
+    }
+    
+    .about-page h2 {
+        font-size: 26px;
+    }
+
+    /* title container */
+    .aboutContainerTop h1{
+        top: 127px;
+    }
+
     .about-title {
         display: inline;
     }
@@ -451,10 +477,10 @@ p {
     .imageSelected1, .imageSelected2, .imageSelected3 {
         display: none;
     }
+
     /* ================================== */
 
     /* moissanite container */
-
     .moissanite-container {
         padding: 50px 0;
     }
@@ -464,19 +490,42 @@ p {
 
     .moissanite-container > div:last-child > div {
         flex-direction: column;
-        margin: 0px 35px; 
+        margin: 0px 10px; 
+        flex: 1;
     }
+
+    .moissanite-container > div:first-child h2 {
+        font-size: 30px;
+    }
+    .moissanite-container > div:last-child > div:nth-child(1) {
+        margin-left: 30px;
+    }
+
     .moissanite-container > div:last-child > div:nth-child(2) {
         margin-top: 0;
         margin-bottom: 0;
+        flex: 1.3;
+    }
+
+    .moissanite-container > div:last-child > div:nth-child(3) {
+        margin-right: 30px;
+    }
+
+    div.ipad-exception {
+        /* unsure why can't take off !important tag */
+        flex: 1 !important;
     }
     
     .moissanite-logo img {
+        width: 100px;
+        height: 100px;
         margin-left: 0;
         margin-bottom: 20px;
     }
-    
-    .moissanite-benefit {
+
+    p.moissanite-benefit {
+        font-size: 16px;
+        text-align: center;
         margin-right: 0;
         margin-left: 0;
     }
@@ -508,45 +557,287 @@ p {
     /* ================================== */
     
     /* 2nd moissanite container */
-.moissanite-2-container {
-    /* margin: 40px 0; */
-    display: flex;
-    position: relative;
-    height: 350px;
-}
+    .moissanite-2-container {
+        /* margin: 40px 0; */
+        display: flex;
+        position: relative;
+        height: 350px;
+    }
 
-.moissanite-2-container > div:first-child {
-    flex: 1;
-    /* padding-bottom: 40px; */
-    padding: 40px 0;
-    position: absolute;
-    bottom: 50%;
-    transform: translateY(50%);
-    left: 0;
-    width: 50%;
-    margin-left: 30px;
-}
+    .moissanite-2-container > div:first-child {
+        flex: 1;
+        /* padding-bottom: 40px; */
+        padding: 40px 0;
+        position: absolute;
+        bottom: 50%;
+        transform: translateY(50%);
+        left: 0;
+        width: 50%;
+        margin-left: 30px;
+    }
 
-.moissanite-2-container > div:last-child {
-    flex: 1;
-    position: absolute;
-    bottom: 0;
-    right: 0;
+    .moissanite-2-container > div:last-child {
+        flex: 1;
+        position: absolute;
+        bottom: 0;
+        right: 0;
 
-}
+    }
 
-.history {
-    padding: 44px 30px 0;
-}
+    .history {
+        padding: 44px 30px 0;
+    }
 
-.history > div:last-child {
-    border: none;
-    padding-bottom: 0;
-}
+    .history > div:last-child {
+        border: none;
+        padding-bottom: 0;
+    }
 
-.comparison img {
-    height: 310px;
-}
-/* ================================== */
+    .comparison img {
+        height: 310px;
+    }
+    /* ================================== */
 
-}
+    /* delete some of these elements? */
+    /* founder quote container */
+    .founder-quote-container p {
+        font-size: 28px;
+        color: white;
+        margin: 0 65px;
+    }
+
+    .founder-quote-container p:last-of-type {
+        font-size: 20px;
+        margin-top: 20px;
+    }
+
+    .founder-quote-container p:last-of-type::before {
+        content: '- ';
+        font-size: 20px;
+    }
+    /* ================================== */
+
+    @media only screen and (min-width: 1024px) {
+
+        /* font size */
+        .about-page h1 {
+            font-size: 44px;
+        }
+        
+        .about-page p {
+            font-size: 18px;
+        }
+        
+        .about-page h2 {
+            font-size: 30px;
+        }
+    
+        .moissanite-benefit {
+            /* how to remove !important tag */
+            font-size: 18px !important;
+        }
+
+        .mission-container p {
+            font-size: 22px;
+        }
+        /* ================================== */
+
+
+        /* top container */
+        .aboutContainerTop h1{
+            top: 165px;
+        }
+        /* ================================== */
+
+        /* mission container */
+        .mission-container {
+            padding: 0px 190px;
+        }
+
+        .mission-container h2 {
+            margin-bottom: 35px;
+        }
+        /* ================================== */
+
+        /* image gallery */
+        .slide img {
+            max-height: 34vh;
+        }
+        /* ================================== */
+
+        /* moissanite container */
+        .moissanite-container {
+            padding: 87px 0;
+        }
+
+        .moissanite-container > div:first-child {
+            margin-bottom: 55px;
+        }
+
+        .moissanite-container > div:last-child > div {
+            margin: 0px 50px; 
+        }
+
+        .moissanite-container > div:first-child h2 {
+            font-size: 34px;
+        }
+
+        .moissanite-container > div:last-child > div:nth-child(1) {
+            margin-left: 30px;
+            margin-right: 0;
+        }
+    
+        .moissanite-container > div:last-child > div:nth-child(2) {
+            /* margin-right: 0; */
+            /* margin-left: 0; */
+            flex: 1.4;
+        }
+    
+        .moissanite-container > div:last-child > div:nth-child(3) {
+            margin-right: 30px;
+            margin-left: 0;
+        }
+
+        .moissanite-logo img {
+            width: 120px;
+            height: 120px;
+        }
+
+        /* ================================== */
+
+        /* expensive container */
+        .expensive-container {
+            margin: 50px 40px;
+        }
+
+
+        .expensive-container div:last-child {
+            margin: 0 85px;
+        }
+
+        .expensive-container img {
+            height: 225px;
+        }
+        /* ================================== */
+
+        /* 2nd moissanite container */
+        .moissanite-2-container {
+            height: 387px;
+        }
+
+        .comparison img {
+            height: 387px;
+        }
+        /* ================================== */
+
+        /* founder quote container */
+        .founder-quote-container p {
+            font-size: 28px;
+            margin: 0 100px;
+        }
+        /* ================================== */
+    }
+
+    @media only screen and (min-width: 1200px) {
+
+        /* font size */
+        .about-page h1 {
+            font-size: 52px;
+        }
+
+        .about-page p {
+            font-size: 22px;
+        }
+
+        .about-page h2 {
+            font-size: 32px;
+        }
+
+        .moissanite-benefit {
+            /* how to remove !important tag */
+            font-size: 20px !important;
+        }
+
+        .mission-container p {
+            font-size: 24px;
+        }
+
+        .founder-quote-container p {
+            font-size: 28px;
+            margin: 0 175px;
+        }
+        /* ================================== */
+
+        /* top container */
+        .aboutContainerTop h1{
+            top: 240px;
+        }
+        /* ================================== */
+
+        /* mission container */
+        .mission-container {
+            padding: 320px 270px;
+        }
+        /* ================================== */
+
+        /* image gallery */
+        .slide img {
+            max-height: 48vh;
+        }
+        /* ================================== */
+
+        /* moissanite container */
+        .moissanite-container {
+            padding: 120px 0;
+        }
+
+        .moissanite-container > div:first-child {
+            margin-bottom: 55px;
+        }
+
+        .moissanite-container > div:last-child {
+            margin: 0 100px;
+        }
+
+        .moissanite-container > div:last-child > div {
+        }
+
+        .moissanite-container > div:first-child h2 {
+            font-size: 40px;
+        }
+
+        .moissanite-logo img {
+            width: 140px;
+            height: 140px;
+        }
+        /* ================================== */
+
+        /* expensive container */
+        .expensive-container {
+            margin: 80px 60px;
+        }
+
+
+        .expensive-container div:last-child {
+            margin: 0 75px;
+        }
+
+        .expensive-container img {
+            height: 310px;
+        }
+        /* ================================== */
+
+        /* 2nd moissanite container */
+        .moissanite-2-container {
+            height: 530px;
+        }
+
+        .comparison img {
+            width: 100%;
+            height: 530px;
+        }
+        /* ================================== */
+    }
+    
+
+}   
