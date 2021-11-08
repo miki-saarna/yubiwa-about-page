@@ -218,7 +218,7 @@ const reveal1 = document.querySelector(".reveal1");
 window.addEventListener("scroll", () => {
     const windowHeight = window.innerHeight;
     const revealTop = reveal.getBoundingClientRect().top;
-    let revealPoint = -1850;
+    let revealPoint = -2200;
     if(window.innerWidth > 767 && window.innerWidth < 1024) {
       revealPoint = -1400
     } else if(window.innerWidth > 1023 && window.innerWidth < 1200) {
@@ -238,7 +238,7 @@ const reveal2 = document.querySelector(".reveal2");
 window.addEventListener("scroll", () => {
     const windowHeight = window.innerHeight;
     const revealTop = reveal.getBoundingClientRect().top;
-    let revealPoint = -900;
+    let revealPoint = -1200;
     if(window.innerWidth > 767 && window.innerWidth < 1024) {
       revealPoint = -700
     } else if(window.innerWidth > 1023 && window.innerWidth < 1200) {
